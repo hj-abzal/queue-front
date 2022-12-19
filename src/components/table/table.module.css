@@ -25,6 +25,8 @@
     flex-direction: column;
     border: 1px solid black;
     width: 132px;
+    overflow-y: scroll;
+    height: 180px;
 }
 
 .numbersFalse {
@@ -32,6 +34,8 @@
     flex-direction: column;
     border: 1px solid black;
     width: 126px;
+    overflow-y: scroll;
+    height: 180px;
 }
 
 

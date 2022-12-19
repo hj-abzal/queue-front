@@ -21,12 +21,12 @@ export const Table = (props: TableType) => {
             <div className={s.table}>
                 <div className={s.numbersTrue}>
                     {props.orders.map((t) => {
-                        if (t.isReady) return <div className={s.true}>{t.id}</div>
+                        if (!t.isReady) return <div className={s.true}>{t.id}</div>
                     })}
                 </div>
                 <div className={s.numbersFalse}>
                     {props.orders.map((t) => {
-                        if (!t.isReady) return <div className={s.false}>{t.id}</div>
+                        if (t.isReady) return <div className={s.false}>{t.id}</div>
                     })}
                 </div>
             </div>
