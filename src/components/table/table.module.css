@@ -1,0 +1,68 @@
+.main {
+    padding: 1rem;
+    margin-left: 27px;
+}
+
+.orders {
+    border: 1px solid black;
+    width: 250px;
+    display: flex;
+    padding: 5px;
+}
+
+.done {
+    font-weight: bold;
+    padding-left: 70px;
+}
+
+.notDone {
+    font-weight: bold;
+    padding-left: 25px;
+}
+
+.numbersTrue {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 132px;
+}
+
+.numbersFalse {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 126px;
+}
+
+
+.true {
+    border-bottom:1px solid black ;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+}
+
+.false {
+    border-bottom:1px solid black ;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+}
+
+.numbers {
+    display: flex;
+    flex-direction: column;
+}
+
+.table {
+    display: flex;
+}
+
+.foodMain {
+  margin-top: -50px;
+}
+
+.food {
+    width: 270px;
+    height: 300px;
+}
