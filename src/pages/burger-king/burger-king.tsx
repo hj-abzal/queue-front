@@ -3,7 +3,6 @@ import s from './burger-king.module.css'
 import {Header} from "../../components/header/header";
 import logo from './img/burger-logo.png'
 import presentFood from './img/burger-food.png'
-import bell from './img/1-28.jpg'
 import {Table} from "../../components/table/table";
 import {SpecTitle} from "../../components/SpecTitle/specTitle";
 import {Modal} from "../../components/Modal/Modal";
