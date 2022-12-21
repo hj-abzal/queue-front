@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './specTitle.module.css'
+import s from './SpecTitle.module.css'
 
 
 type SpecTitleType = {

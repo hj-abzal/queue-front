@@ -1,6 +1,7 @@
 import s from './App.module.css'
 import {Route, Routes} from "react-router-dom";
-import {BurgerKing} from "./pages/burger-king/burger-king";
+import {BurgerKing} from "./pages/burger-king/Burger-king";
+import React from "react";
 
 export const App = () => {
     return (
