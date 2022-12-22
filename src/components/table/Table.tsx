@@ -5,7 +5,6 @@ export type OrdersType = {
     id: string,
     isReady: boolean
 }
-
 export type TableType = {
     orders: OrdersType[]
     img: string,

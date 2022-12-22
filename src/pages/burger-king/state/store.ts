@@ -2,7 +2,7 @@ import {combineReducers, createStore} from "redux";
 import {ordersReducer} from "./orders-reducer";
 
 export const rootReducer = combineReducers({
-    orders: ordersReducer
+    bKingOrders: ordersReducer
 })
 
 export const store = createStore(rootReducer)

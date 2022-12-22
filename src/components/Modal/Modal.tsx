@@ -11,9 +11,8 @@ type ModalPropsType = {
 
 export const Modal = (props: ModalPropsType) => {
 
-    const onClickHandler = () => {
-
-    }
+    const onClickHandler = () => {}
+    
     return (
         <div className={s.modal}>
             <Dialog open={props.isOpen} onClose={() => props.setIsOpen(false)}>

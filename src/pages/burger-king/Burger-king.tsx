@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './Burger-king.module.css'
 import {Header} from "../../components/header/Header";
 import logo from './img/burger-logo.png'
@@ -13,15 +13,18 @@ import {AppRootStateType} from "./state/store";
 
 export const BurgerKing = () => {
     const dispatch = useDispatch()
-    const orders = useSelector<AppRootStateType, any>(state => state.orders)
+    const bKingOrders = useSelector<AppRootStateType, any>(state => state.bKingOrders)
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
+    // useEffect(() => {
+    //     dispatch(ordersAC())
+    // })
     return (
         <div className={s.wrapper}>
             <Header title={'Burger King'} img={logo} setIsOpen={setIsOpen}/>
-            <Table orders={orders} img={presentFood}/>
+            <Table orders={bKingOrders.orders} img={presentFood}/>
             <SpecTitle title={'RANDOM TEXT'}/>
-            <Modal orders={orders}  isOpen={isOpen} setIsOpen={setIsOpen}/>
+            <Modal orders={bKingOrders.orders}  isOpen={isOpen} setIsOpen={setIsOpen}/>
         </div>
     );
 };
