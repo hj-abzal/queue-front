@@ -1,11 +1,11 @@
 import React from 'react';
-import s from "./header.module.css";
+import s from "./Header.module.css";
 
 
 type BurgerLogoType = {
     title: string,
     img: string,
-    setActive: (value: any) => void
+    setIsOpen: (value: any) => void
 }
 
 export const Header = (props: BurgerLogoType) => {
@@ -18,7 +18,7 @@ export const Header = (props: BurgerLogoType) => {
                 </div>
                 <div className={s.flex}>
                     <button className={s.modalButton}
-                            onClick={()=>{props.setActive(true)}}>M
+                            onClick={()=>{props.setIsOpen(true)}}>M
                     </button>
                 </div>
             </div>
