@@ -7,13 +7,14 @@ import {Table} from "../../components/table/Table";
 import {SpecTitle} from "../../components/SpecTitle/SpecTitle";
 import {Modal} from "../../components/Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "./state/store";
+import {AppRootStateType} from "../../store/store";
+import {ordersAC} from "../../store/orders-reducer";
 
 
 
 export const BurgerKing = () => {
     const dispatch = useDispatch()
-    const bKingOrders = useSelector<AppRootStateType, any>(state => state.bKingOrders)
+    const bKingOrders = useSelector<AppRootStateType, any>(state => state.restaurantOrders)
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     // useEffect(() => {
