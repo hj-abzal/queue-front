@@ -21,6 +21,7 @@ export const Restaurant = (props: RestaurantPropsType) => {
     // })
 
 
+    // fdfdfdgdfgdfgerger
 
     return (
         <div className={s.wrapper}>
