@@ -6,7 +6,7 @@ type ChosenActionType = {
 }
 type ActionsType = OrdersActionType | ChosenActionType
 
-export const burgerKingInitialState = {
+export const restaurantOrdersInitialState = {
     orders: [
         {id: 'B23', isReady: true},
         {id: 'L45', isReady: true},
@@ -36,7 +36,7 @@ export const burgerKingInitialState = {
 
 }
 
-export const ordersReducer = (state = burgerKingInitialState, action: ActionsType) => {
+export const ordersReducer = (state = restaurantOrdersInitialState, action: ActionsType) => {
     switch (action.type) {
         case "ORDERED": {
             return {...state};
