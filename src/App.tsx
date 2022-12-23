@@ -13,6 +13,7 @@ export const App = () => {
     useEffect(() => {
         dispatch(getRestaurants())
     }, [])
+
     return (
         <div className={s.app}>
             <Routes>

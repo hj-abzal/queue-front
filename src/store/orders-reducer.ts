@@ -1,11 +1,12 @@
 type OrdersActionType = {
     type: "ORDERED"
 }
-type ChosenActionType = {
-    type: "IS_CHOSEN"
+type IdOfSelectedElementActionType = {
+    type: "ELEMENT_IS_SELECTED"
+    selectedElement: string
 }
-type ActionsType = OrdersActionType | ChosenActionType
-
+type ActionsType = OrdersActionType | IdOfSelectedElementActionType
+export type RestautrantsInitStateType = typeof restaurantOrdersInitialState
 export const restaurantOrdersInitialState = {
     orders: [
         {id: 'B23', isReady: true},
@@ -33,13 +34,19 @@ export const restaurantOrdersInitialState = {
         {id: 'Z29', isReady: true},
     ],
     name: 'Burger King',
-
+    idOfSelectedElement: ''
 }
 
 export const ordersReducer = (state = restaurantOrdersInitialState, action: ActionsType) => {
     switch (action.type) {
         case "ORDERED": {
             return {...state};
+        }
+        case "ELEMENT_IS_SELECTED": {
+            return {
+                ...state,
+                idOfSelectedElement: action.selectedElement
+            }
         }
         default:
             return state
@@ -48,4 +55,7 @@ export const ordersReducer = (state = restaurantOrdersInitialState, action: Acti
 
 export const ordersAC = (): OrdersActionType => {
     return {type: "ORDERED"}
+}
+export const selectedElementAC = (selectedElement: string) => {
+    return {type: "ELEMENT_IS_SELECTED", selectedElement}
 }

@@ -8,6 +8,7 @@ export type OrdersType = {
 export type TableType = {
     orders: OrdersType[]
     img: string,
+    idOfSelectedElement: string
 }
 
 export const Table = (props: TableType) => {
@@ -22,7 +23,7 @@ export const Table = (props: TableType) => {
                     <div className={s.table}>
                         <div className={s.numbersTrue}>
                             {props.orders.map((t, index) => {
-                                if (!t.isReady) return <div key={index} className={s.true}>{t.id}</div>
+                                if (!t.isReady) return <div key={index} className={s.true}>{t.id}<div style={{backgroundColor: props.idOfSelectedElement === props.orders.map(e=>e.id).toString() ? 'red' : 'white'}}></div></div>
                             })}
                         </div>
                         <div className={s.numbersFalse}>
