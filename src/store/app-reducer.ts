@@ -3,23 +3,30 @@ import {Dispatch} from "redux";
 import {restaurantsAPI} from "../api/api";
 
 export type RestaurantType = {
-    id:number,
+    id: number,
     title: string,
-    img:string,
+    img: string,
     url: string
 }
 
 type InitStateType = typeof initState;
 const initState = {
     isLoading: false,
-    restaurants: [] as RestaurantType[]
+    restaurants: [
+        {
+            id: 1,
+            title: 'BurgerKing',
+            url: 'burger-king',
+            img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNInzYrV9eVOrwlypUwhCsGTA0EtYuBOS5Sw&usqp=CAU'
+        }
+    ] as RestaurantType[]
 }
 
 type ActionsType =
     | ReturnType<typeof setRestaurants>
 
 //LOGIC
-export const appReducer = (state: InitStateType = initState, action: ActionsType)=>{
+export const appReducer = (state: InitStateType = initState, action: ActionsType) => {
     switch (action.type) {
         case 'SET_RESTAURANTS': {
             return {
@@ -27,7 +34,7 @@ export const appReducer = (state: InitStateType = initState, action: ActionsType
                 restaurants: action.restaurants
             }
         }
-        default:{
+        default: {
             return state
         }
     }

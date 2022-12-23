@@ -7,11 +7,15 @@ type ModalPropsType = {
     isOpen: boolean
     setIsOpen: (value: boolean) => void
     orders: OrdersType[]
+    onClickHandlerOfSelectedElement: (id: string) => void
 }
 
 export const Modal = (props: ModalPropsType) => {
 
-    const onClickHandler = () => {}
+    const onClickHandler = (id: string) => {
+        props.onClickHandlerOfSelectedElement(id)
+
+    }
     
     return (
         <div className={s.modal}>
@@ -23,8 +27,8 @@ export const Modal = (props: ModalPropsType) => {
                         </div>
                         <div className={s.modalContent}>
                             {props.orders.map((t, index) => {
-                                if (t.isReady) return <button key={index} className={s.modalOrders}
-                                                           onClick={onClickHandler}>{t.id}</button>
+                                if (!t.isReady) return <button key={index} className={s.modalOrders}
+                                                           onClick={() => {onClickHandler(t.id); props.setIsOpen(false)}}>{t.id}</button>
                             })}
                         </div>
                         <div>
