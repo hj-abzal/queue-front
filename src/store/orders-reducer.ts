@@ -41,9 +41,6 @@ export const ordersReducer = (state = restaurantOrdersInitialState, action: Acti
         case "ORDERED": {
             return {...state};
         }
-        case 'IS_CHOSEN': {
-            return
-        }
         default:
             return state
     }
@@ -51,7 +48,4 @@ export const ordersReducer = (state = restaurantOrdersInitialState, action: Acti
 
 export const ordersAC = (): OrdersActionType => {
     return {type: "ORDERED"}
-}
-export const chosenAC = () => {
-    return {type: "IS_CHOSEN"}
 }

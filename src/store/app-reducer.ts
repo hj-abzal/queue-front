@@ -1,26 +1,51 @@
+//TYPES
+import {Dispatch} from "redux";
+import {restaurantsAPI} from "../api/api";
+
 export type RestaurantType = {
     id:number,
-    name: string,
-    img:string
+    title: string,
+    img:string,
+    url: string
 }
 
-type StateType = RestaurantType[]
-
-export const restaurantsInitialState : StateType= [
-    {id:1,name:'Burger King', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Burger_King_logo_%281999%29.svg/2024px-Burger_King_logo_%281999%29.svg.png'},
-    {id:2,name:'McDonald', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Burger_King_logo_%281999%29.svg/2024px-Burger_King_logo_%281999%29.svg.png'},
-    {id:3,name:'Маши Со', img:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Burger_King_logo_%281999%29.svg/2024px-Burger_King_logo_%281999%29.svg.png'}
-]
-
-type getRestaurants = {
-    type: 'GET-RESTAURANTS'
+type InitStateType = typeof initState;
+const initState = {
+    isLoading: false,
+    restaurants: [] as RestaurantType[]
 }
 
-export const appReducer = (state: StateType = restaurantsInitialState, action: any)=>{
+type ActionsType =
+    | ReturnType<typeof setRestaurants>
+
+//LOGIC
+export const appReducer = (state: InitStateType = initState, action: ActionsType)=>{
     switch (action.type) {
-
+        case 'SET_RESTAURANTS': {
+            return {
+                ...state,
+                restaurants: action.restaurants
+            }
+        }
         default:{
             return state
         }
     }
+}
+
+//ACTION CREATORS
+export const setRestaurants = (restaurants: RestaurantType[]) => ({
+    type: "SET_RESTAURANTS" as const, restaurants
+})
+
+export const setIsLoading = (value: boolean) => ({
+    type: "SET_RESTAURANTS" as const, value
+})
+
+//THUNK CREATORS
+export const getRestaurants = () => async (dispatch: Dispatch) => {
+    // dispatch(setIsLoading(true));
+    const restaurants = await restaurantsAPI.getAll();
+    dispatch(setRestaurants(restaurants))
+    // dispatch(setIsLoading(false));
 }
