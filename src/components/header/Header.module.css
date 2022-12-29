@@ -38,3 +38,33 @@
     font-weight: bold;
     font-size: 30px;
 }
+
+
+@media screen and (max-width: 426px) {
+    .main {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .main {
+        height: 85px;
+    }
+}
+
+@media screen and (max-width: 340px){
+    .main {
+        height: 80px;
+    }
+    .title {
+        align-self: center;
+        font-size: 30px;
+        margin-left: 0;
+    }
+    .modalButton {
+        margin-right: 1.7rem;
+    }
+    .img {
+        margin-left: 1rem;
+    }
+}

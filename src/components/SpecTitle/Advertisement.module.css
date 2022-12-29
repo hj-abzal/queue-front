@@ -25,6 +25,7 @@
 }
 
 .slider {
+    margin-top: 4rem;
     width: 100%;
     height: 100%;
 }
@@ -37,5 +38,27 @@
 
 .main {
     display: flex;
-    margin-left: 40px;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1920px){
+    .main {
+        display: flex;
+        justify-content: center;
+        margin-left: 1px;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .main {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .main {
+        display: flex;
+        justify-content: center;
+    }
 }
