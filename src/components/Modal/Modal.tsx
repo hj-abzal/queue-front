@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './Modal.module.css'
 import {Dialog} from "@headlessui/react";
 import {OrdersType} from "../table/Table";
@@ -8,6 +8,9 @@ type ModalPropsType = {
     setIsOpen: (value: boolean) => void
     orders: OrdersType[]
     onClickHandlerOfSelectedElement: (id: string) => void
+    idOfSelectedElement: string
+    clickedElStyle: string
+    setClickedElStyle: (id: string) => void
 }
 
 export const Modal = (props: ModalPropsType) => {
@@ -15,7 +18,25 @@ export const Modal = (props: ModalPropsType) => {
     const onClickHandler = (id: string) => {
         props.onClickHandlerOfSelectedElement(id)
     }
-    
+
+    const scrollIntoSelected = (id: string) => {
+        setTimeout(() => {
+            const selected = document.getElementById(id)
+            console.log(selected)
+            if (selected) {
+                selected.scrollIntoView({behavior: 'smooth'})
+            }
+        }, 0)
+    }
+
+    const isActive = (id: string) => {
+        if (props.idOfSelectedElement === id) {
+            scrollIntoSelected(id)
+            return `${s.selectedButton} ${s.modalOrders}`
+        } else {
+            return s.modalOrders
+        }
+    }
     return (
         <div className={s.modal}>
             <Dialog open={props.isOpen} onClose={() => props.setIsOpen(false)}>
@@ -26,8 +47,11 @@ export const Modal = (props: ModalPropsType) => {
                         </div>
                         <div className={s.modalContent}>
                             {props.orders.map((t, index) => {
-                                if (!t.isReady) return <button key={index} className={s.modalOrders}
-                                                           onClick={() => {onClickHandler(t.id); props.setIsOpen(false)}}>{t.id}</button>
+                                if (!t.isReady) return <button id={t.id} key={index}
+                                                               className={isActive(t.id)}
+                                                               onClick={() => {
+                                                                   onClickHandler(t.id);
+                                                               }}>{t.id}</button>
                             })}
                         </div>
                         <div>

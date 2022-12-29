@@ -20,6 +20,7 @@ export const Restaurant = (props: RestaurantPropsType) => {
     const orders = useSelector<AppStateType, OrdersType[]>(state => state.orders.orders)
     const idOfSelectedElement = useSelector<AppStateType, string>(state => state.orders.idOfSelectedElement)
     const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [clickedElStyle, setClickedElStyle] = useState('')
     const img = [
         {id: '1', img: ph1},
         {id: '2', img: ph2},
@@ -34,10 +35,15 @@ export const Restaurant = (props: RestaurantPropsType) => {
         <div className={s.wrapper}>
             <Header title={props.name} img={props.img} setIsOpen={setIsOpen}/>
             <Table orders={orders}
+                   clickedElStyle={clickedElStyle}
+                   setClickedElStyle={setClickedElStyle}
                    idOfSelectedElement={idOfSelectedElement}/>
             <Advertisement img={img}/>
             <Modal
+                clickedElStyle={clickedElStyle}
+                setClickedElStyle={setClickedElStyle}
                 onClickHandlerOfSelectedElement={onClickHandlerOfSelectedElement}
+                idOfSelectedElement={idOfSelectedElement}
                 orders={orders}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}/>
