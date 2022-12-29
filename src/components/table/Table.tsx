@@ -8,9 +8,31 @@ export type OrdersType = {
 export type TableType = {
     orders: OrdersType[]
     idOfSelectedElement: string
+    clickedElStyle: string
+    setClickedElStyle: (id: string) => void
 }
 
 export const Table = (props: TableType) => {
+
+    const scrollIntoSelected = (id: string) => {
+        setTimeout(() => {
+            const selected = document.getElementById(id)
+            console.log(selected)
+            if (selected) {
+                selected.scrollIntoView({behavior: 'smooth'})
+            }
+        }, 0)
+    }
+
+    const isActive = (id: string) => {
+        if (props.idOfSelectedElement === id) {
+            scrollIntoSelected(id)
+            return 'red'
+        } else {
+            return 'white'
+        }
+    }
+
     return (
         <div className={s.main}>
             <div className={s.blockTable1}>
@@ -22,7 +44,7 @@ export const Table = (props: TableType) => {
                     <div className={s.table}>
                         <div className={s.numbersTrue}>
                             {props.orders.map((t, index) => {
-                                if (!t.isReady) return <div key={index} className={s.true}>{t.id}<div style={{backgroundColor: props.idOfSelectedElement === props.orders.map(e=>e.id).toString() ? 'red' : 'white'}}></div></div>
+                                if (!t.isReady) return <div key={index} className={s.true}><div id={t.id} style={{backgroundColor: isActive(t.id)}}>{t.id}</div></div>
                             })}
                         </div>
                         <div className={s.numbersFalse}>

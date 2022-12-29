@@ -3,7 +3,7 @@ type OrdersActionType = {
 }
 type IdOfSelectedElementActionType = {
     type: "ELEMENT_IS_SELECTED"
-    selectedElement: string
+    id: string
 }
 type ActionsType = OrdersActionType | IdOfSelectedElementActionType
 export type RestautrantsInitStateType = typeof restaurantOrdersInitialState
@@ -45,7 +45,7 @@ export const ordersReducer = (state = restaurantOrdersInitialState, action: Acti
         case "ELEMENT_IS_SELECTED": {
             return {
                 ...state,
-                idOfSelectedElement: action.selectedElement
+                idOfSelectedElement: action.id
             }
         }
         default:
@@ -56,6 +56,6 @@ export const ordersReducer = (state = restaurantOrdersInitialState, action: Acti
 export const ordersAC = (): OrdersActionType => {
     return {type: "ORDERED"}
 }
-export const selectedElementAC = (selectedElement: string) => {
-    return {type: "ELEMENT_IS_SELECTED", selectedElement}
+export const selectedElementAC = (id: string) => {
+    return {type: "ELEMENT_IS_SELECTED", id}
 }
