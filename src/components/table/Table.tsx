@@ -7,7 +7,6 @@ export type OrdersType = {
 }
 export type TableType = {
     orders: OrdersType[]
-    img: string,
     idOfSelectedElement: string
 }
 
@@ -34,7 +33,6 @@ export const Table = (props: TableType) => {
                     </div>
                 </div>
             </div>
-            <div className={s.foodMain}><img src={props.img} className={s.food}/></div>
         </div>
     );
 };

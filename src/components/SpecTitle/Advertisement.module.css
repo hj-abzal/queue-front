@@ -1,0 +1,41 @@
+@import "react-slideshow-image/dist/styles.css";
+
+.each-slide-effect > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 100%;
+}
+
+.slider-styles {
+    background: white !important;
+}
+
+.indicator {
+    cursor: pointer;
+    margin: 3px;
+    text-align: center;
+    border: 1px #666 solid;
+    margin: 0;
+}
+
+.indicator.active {
+    color: #fff;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+}
+
+.img {
+    height: 200px;
+    width: 300px;
+    justify-self: center;
+}
+
+.main {
+    display: flex;
+    margin-left: 40px;
+}
