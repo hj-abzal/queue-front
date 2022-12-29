@@ -64,6 +64,11 @@
     padding-left: 50px;
 }
 
+.selectedButton {
+    background-color: red !important;
+    border: 2px red solid;
+}
+
 .false {
     border-bottom: 1px solid black;
     padding-top: 5px;
