@@ -58,6 +58,7 @@
     align-items: center;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
 }
+
 .modalOrders:hover {
     background-color: rgba(17, 154, 154, 0.51);
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.5);
@@ -81,6 +82,7 @@
 .buttonClose:active {
     transform: translate(2px, 2px);
 }
+
 ::-webkit-scrollbar {
     width: 7px;
     height: 7px;

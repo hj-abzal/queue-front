@@ -14,7 +14,6 @@ export const Modal = (props: ModalPropsType) => {
 
     const onClickHandler = (id: string) => {
         props.onClickHandlerOfSelectedElement(id)
-
     }
     
     return (

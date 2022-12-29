@@ -29,6 +29,7 @@ export const Restaurant = (props: RestaurantPropsType) => {
     const onClickHandlerOfSelectedElement = (id: string) => {
       dispatch(selectedElementAC(id))
     }
+
     return (
         <div className={s.wrapper}>
             <Header title={props.name} img={props.img} setIsOpen={setIsOpen}/>
