@@ -1,35 +1,33 @@
 import React, {useState} from 'react';
 import s from './Modal.module.css'
 import {Dialog} from "@headlessui/react";
-import {OrdersType} from "../table/Table";
+import {OrdersType} from "../../store/orders-reducer";
 
 type ModalPropsType = {
     isOpen: boolean
     setIsOpen: (value: boolean) => void
     orders: OrdersType[]
-    onClickHandlerOfSelectedElement: (id: string) => void
-    idOfSelectedElement: string
-    clickedElStyle: string
-    setClickedElStyle: (id: string) => void
+    onClickHandlerOfSelectedElement: (id: number) => void
+    idOfSelectedElement: number
 }
 
 export const Modal = (props: ModalPropsType) => {
 
-    const onClickHandler = (id: string) => {
+    const onClickHandler = (id: number) => {
         props.onClickHandlerOfSelectedElement(id)
     }
 
-    const scrollIntoSelected = (id: string) => {
+    const scrollIntoSelected = (id: number) => {
         setTimeout(() => {
-            const selected = document.getElementById(id)
+            const selected = document.getElementById(id.toString())
             console.log(selected)
             if (selected) {
                 selected.scrollIntoView({behavior: 'smooth'})
             }
-        }, 0)
+        })
     }
 
-    const isActive = (id: string) => {
+    const isActive = (id: number) => {
         if (props.idOfSelectedElement === id) {
             scrollIntoSelected(id)
             return `${s.selectedButton} ${s.modalOrders}`
@@ -46,12 +44,12 @@ export const Modal = (props: ModalPropsType) => {
                             <Dialog.Title>Выберите ваш заказ</Dialog.Title>
                         </div>
                         <div className={s.modalContent}>
-                            {props.orders.map((t, index) => {
-                                if (!t.isReady) return <button id={t.id} key={index}
-                                                               className={isActive(t.id)}
-                                                               onClick={() => {
+                            {props.orders.map((t) => {
+                                if (!t.is_ready) return <button id={t.id.toString()} key={t.id}
+                                                                className={isActive(t.id)}
+                                                                onClick={() => {
                                                                    onClickHandler(t.id);
-                                                               }}>{t.id}</button>
+                                                               }}>{t.key}</button>
                             })}
                         </div>
                         <div>

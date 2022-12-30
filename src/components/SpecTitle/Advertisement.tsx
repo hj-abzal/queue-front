@@ -17,7 +17,7 @@ export const Advertisement = (props: AdvertisementType) => {
     return (
         <div className={s.slider}>
             <Slide infinite={true} cssClass={`slider-styles`}>
-                {props.img.map((t) => <div className={s.main}><img src={t.img} className={s.img}/></div>)}
+                {props.img.map((t) => <div key={t.id} className={s.main}><img src={t.img} className={s.img}/></div>)}
             </Slide>
         </div>
     );

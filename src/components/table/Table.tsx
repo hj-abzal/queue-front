@@ -1,15 +1,10 @@
 import React from 'react';
 import s from './Table.module.css'
+import {OrdersType} from "../../store/orders-reducer";
 
-export type OrdersType = {
-    id: string,
-    isReady: boolean
-}
 export type TableType = {
     orders: OrdersType[]
-    idOfSelectedElement: string
-    clickedElStyle: string
-    setClickedElStyle: (id: string) => void
+    idOfSelectedElement: number
 }
 
 export const Table = (props: TableType) => {
@@ -24,13 +19,13 @@ export const Table = (props: TableType) => {
                     </div>
                     <div className={s.table}>
                         <div className={s.numbersTrue}>
-                            {props.orders.map((t, index) => {
-                                if (!t.isReady) return <div key={index} className={props.idOfSelectedElement === t.id ? `${s.selectedButton} ${s.true}` : s.true}>{t.id}</div>
+                            {props.orders.map((t) => {
+                                if (!t.is_ready) return <div key={t.id} className={props.idOfSelectedElement === t.id ? `${s.selectedButton} ${s.true}` : s.true}>{t.key}</div>
                             })}
                         </div>
                         <div className={s.numbersFalse}>
-                            {props.orders.map((t, index) => {
-                                if (t.isReady) return <div key={index} className={s.false}>{t.id}</div>
+                            {props.orders.map((t) => {
+                                if (t.is_ready) return <div key={t.id} className={s.false}>{t.key}</div>
                             })}
                         </div>
                     </div>

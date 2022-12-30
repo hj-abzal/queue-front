@@ -1,15 +1,18 @@
-//TYPES
 import {Dispatch} from "redux";
 import {restaurantsAPI} from "../api/api";
 
+//TYPES
 export type RestaurantType = {
     id: number,
     title: string,
     img: string,
     url: string
 }
+type ActionsType =
+    | ReturnType<typeof setRestaurants>
 
 type InitStateType = typeof initState;
+
 const initState = {
     isLoading: false,
     restaurants: [
@@ -21,10 +24,6 @@ const initState = {
         }
     ] as RestaurantType[]
 }
-
-type ActionsType =
-    | ReturnType<typeof setRestaurants>
-
 //LOGIC
 export const appReducer = (state: InitStateType = initState, action: ActionsType) => {
     switch (action.type) {
