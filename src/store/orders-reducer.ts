@@ -1,46 +1,27 @@
-type OrdersActionType = {
-    type: "ORDERED"
+import {Dispatch} from "redux";
+import {ordersAPI} from "../api/api";
+
+type ActionsType = ReturnType<typeof getOrders> | ReturnType<typeof selectedElementAC>
+export type RestaurantsInitStateType = typeof restaurantOrdersInitState
+export type OrdersType = {
+    id: number
+    is_ready: boolean
+    key: string
+    restaurant_id: number
 }
-type IdOfSelectedElementActionType = {
-    type: "ELEMENT_IS_SELECTED"
-    id: string
-}
-type ActionsType = OrdersActionType | IdOfSelectedElementActionType
-export type RestautrantsInitStateType = typeof restaurantOrdersInitialState
-export const restaurantOrdersInitialState = {
-    orders: [
-        {id: 'B23', isReady: true},
-        {id: 'L45', isReady: true},
-        {id: 'D85', isReady: false},
-        {id: 'E61', isReady: true},
-        {id: 'R35', isReady: true},
-        {id: 'R35', isReady: true},
-        {id: 'R35', isReady: true},
-        {id: 'V92', isReady: false},
-        {id: 'Y77', isReady: false},
-        {id: 'S54', isReady: false},
-        {id: 'L63', isReady: true},
-        {id: 'K24', isReady: false},
-        {id: 'H43', isReady: true},
-        {id: 'F15', isReady: true},
-        {id: 'D47', isReady: false},
-        {id: 'U65', isReady: true},
-        {id: 'U59', isReady: false},
-        {id: 'H24', isReady: false},
-        {id: 'L78', isReady: true},
-        {id: 'Q93', isReady: true},
-        {id: 'K65', isReady: false},
-        {id: 'D63', isReady: false},
-        {id: 'Z29', isReady: true},
-    ],
-    name: 'Burger King',
-    idOfSelectedElement: ''
+export const restaurantOrdersInitState = {
+    orders: [] as OrdersType[],
+    idOfSelectedElement: 0
 }
 
-export const ordersReducer = (state = restaurantOrdersInitialState, action: ActionsType) => {
+//REDUCER LOGIC
+export const ordersReducer = (state: RestaurantsInitStateType = restaurantOrdersInitState, action: ActionsType): RestaurantsInitStateType => {
     switch (action.type) {
-        case "ORDERED": {
-            return {...state};
+        case "GET_ORDERS": {
+            return {
+                ...state,
+                orders: action.orders
+            };
         }
         case "ELEMENT_IS_SELECTED": {
             return {
@@ -53,9 +34,16 @@ export const ordersReducer = (state = restaurantOrdersInitialState, action: Acti
     }
 }
 
-export const ordersAC = (): OrdersActionType => {
-    return {type: "ORDERED"}
-}
-export const selectedElementAC = (id: string) => {
-    return {type: "ELEMENT_IS_SELECTED", id}
+//ACTION CREATORS
+export const selectedElementAC = (id: number) => ({
+    type: "ELEMENT_IS_SELECTED" as const, id
+})
+export const getOrders = (orders: OrdersType[]) => ({
+    type: "GET_ORDERS" as const, orders
+})
+
+//THUNK CREATORS
+export const getOrdersTC = (id: number) => async (dispatch: Dispatch) => {
+    const orders = await ordersAPI.getAllOrders(id);
+    dispatch(getOrders(orders))
 }
