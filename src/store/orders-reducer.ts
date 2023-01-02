@@ -44,6 +44,12 @@ export const getOrders = (orders: OrdersType[]) => ({
 
 //THUNK CREATORS
 export const getOrdersTC = (id: number) => async (dispatch: Dispatch) => {
-    const orders = await ordersAPI.getAllOrders(id);
+    const orders = await ordersAPI.getAllOrders(id)
+    const localS = localStorage.getItem('key')
+    if (localS  && orders.find((o) => o.id === +localS)) {
+        dispatch(selectedElementAC(+localS))
+    } else {
+        localStorage.removeItem('key')
+    }
     dispatch(getOrders(orders))
 }

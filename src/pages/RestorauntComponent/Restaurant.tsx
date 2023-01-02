@@ -26,17 +26,12 @@ export const Restaurant = (props: RestaurantPropsType) => {
         {id: '2', img: ph2},
         {id: '3', img: ph3},
     ]
-
     const onClickHandlerOfSelectedElement = (id: number) => {
-      dispatch(selectedElementAC(id))
+        dispatch(selectedElementAC(id))
+        localStorage.setItem('key', JSON.stringify(id))
     }
     useEffect(() => {
-        const setInt = setInterval(() => {
-            dispatch(getOrdersTC(props.id))
-        }, 60000)
-        return () => {
-            clearInterval(setInt)
-        }
+        dispatch(getOrdersTC(props.id))
     }, [])
 
     return (
