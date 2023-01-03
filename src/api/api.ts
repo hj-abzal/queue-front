@@ -12,8 +12,8 @@ type ResponseOrdersType = {
 
 const instance = axios.create({
     baseURL: 'https://queue.up.railway.app/api/',
-    withCredentials: true,
     headers: {
+        withCredentials: true,
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Header": "Origin, X-Requested-With, Content-Type, Accept"
     }
