@@ -11,7 +11,8 @@ export type OrdersType = {
 }
 export const restaurantOrdersInitState = {
     orders: [] as OrdersType[],
-    idOfSelectedElement: 0
+    idOfSelectedElement: 0,
+    loader: false
 }
 
 //REDUCER LOGIC
@@ -20,7 +21,8 @@ export const ordersReducer = (state: RestaurantsInitStateType = restaurantOrders
         case "GET_ORDERS": {
             return {
                 ...state,
-                orders: action.orders
+                orders: action.orders,
+                loader: action.loader
             };
         }
         case "ELEMENT_IS_SELECTED": {
@@ -39,7 +41,7 @@ export const selectedElementAC = (id: number) => ({
     type: "ELEMENT_IS_SELECTED" as const, id
 })
 export const getOrders = (orders: OrdersType[]) => ({
-    type: "GET_ORDERS" as const, orders
+    type: "GET_ORDERS" as const, orders, loader: true
 })
 
 //THUNK CREATORS
