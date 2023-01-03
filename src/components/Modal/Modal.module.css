@@ -1,0 +1,110 @@
+
+.bg {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.popup {
+    background: #FFD700 ;
+    border-radius: 20px;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px 0 rgba(2, 2, 2, 0.4);
+}
+
+.modalHeader {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.modalContent {
+    border: #baa2d0 1px solid;
+    margin: 10px;
+    display: flex;
+    height: auto;
+    width: 90%;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.56);
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.modalOrders {
+    margin: 10px;
+    border-radius: 10px;
+    border: black;
+    height: 40px;
+    min-width: 95px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modalOrders:hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.selectedButton {
+    background-color: white;
+    border: 2px black solid;
+    font-weight: bold;
+}
+.modalOrders:active {
+    transform: translate(1px, 1px);
+}
+.buttonClose {
+    margin-top: 10px;
+    background-color: white;
+    height: 30px;
+    width: 120px;
+    border-radius: 20px;
+    border: 0;
+    font-size: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+}
+.buttonClose:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5);
+}
+.buttonClose:active {
+    transform: translate(2px, 2px);
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6c7e9f;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3c5480;
+}
