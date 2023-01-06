@@ -5,7 +5,6 @@ import {Restaurant} from "./pages/RestorauntComponent/Restaurant";
 import {useDispatch, useSelector} from "react-redux";
 import {getRestaurants, RestaurantType} from "./store/app-reducer";
 import {AppStateType} from "./store/store";
-import {getOrdersTC} from "./store/orders-reducer";
 
 export const App = () => {
     const restaurants = useSelector<AppStateType, RestaurantType[]>(state => state.app.restaurants);
