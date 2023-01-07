@@ -54,6 +54,7 @@ export const getOrdersTC = (id: number) => async (dispatch: Dispatch) => {
             if (selected.is_ready) {
                 alert('Ваш заказ готов!!!')
                 dispatch(selectedElementAC(0))
+                localStorage.removeItem('key')
             } else {
                 dispatch(selectedElementAC(+localS))
             }
