@@ -48,8 +48,16 @@ export const getOrders = (orders: OrdersType[]) => ({
 export const getOrdersTC = (id: number) => async (dispatch: Dispatch) => {
     const orders = await ordersAPI.getAllOrders(id)
     const localS = localStorage.getItem('key')
-    if (localS  && orders.find((o) => o.id === +localS)) {
-        dispatch(selectedElementAC(+localS))
+    if (localS) {
+        const selected = orders.find((o) => o.id === +localS)
+        if (selected) {
+            if (selected.is_ready) {
+                alert('Ваш заказ готов!!!')
+                dispatch(selectedElementAC(0))
+            } else {
+                dispatch(selectedElementAC(+localS))
+            }
+        }
     } else {
         localStorage.removeItem('key')
     }
