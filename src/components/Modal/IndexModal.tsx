@@ -14,7 +14,7 @@ type ModalPropsType = {
     modalClose?: (value: boolean) => void
 }
 
-export const Index_Modal = (props: ModalPropsType) => {
+export const IndexModal = (props: ModalPropsType) => {
 
     const onClickHandler = (id: number) => {
         props.onClickHandlerOfSelectedElement?.(id)
@@ -30,10 +30,11 @@ export const Index_Modal = (props: ModalPropsType) => {
         })
     }
 
-    const fds = ''
     const isActive = (id: number) => {
         if (props.idOfSelectedElement === id) {
-            scrollIntoSelected(id)
+            if (props.isOpen) {
+                scrollIntoSelected(id)
+            }
             return `${s.selectedButton} ${s.modalOrders}`
         } else {
             return s.modalOrders

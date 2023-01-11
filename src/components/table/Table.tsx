@@ -6,6 +6,7 @@ import {OrdersType} from "../../store/orders-reducer";
 export type TableType = {
     orders: OrdersType[]
     idOfSelectedElement: number
+    loader: boolean
 }
 
 export const Table = (props: TableType) => {

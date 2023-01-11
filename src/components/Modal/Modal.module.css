@@ -76,9 +76,11 @@
     border: none;
     color: white;
 }
+
 .modalOrders:active {
     transform: translate(1px, 1px);
 }
+
 .buttonClose {
     margin-bottom: 0.5rem;
     background-color: #b237ff;
@@ -92,10 +94,12 @@
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
 
 }
+
 .buttonClose:hover {
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.3);
     transition: all 100ms;
 }
+
 .buttonClose:active {
     transform: translate(2px, 2px);
 }
