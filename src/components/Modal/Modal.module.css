@@ -8,13 +8,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    font-family: Roboto, Helvetica, sans-serif;
+    z-index: 12;
 }
 
 .popup {
-    background: #869fd0;
+    background: #ffffff;
     border-radius: 20px;
-    height: 200px;
+    height: 250px;
     width: 300px;
     display: flex;
     justify-content: center;
@@ -29,10 +32,11 @@
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    font-weight: bolder;
 }
 
 .modalContent {
-    border: #baa2d0 1px solid;
+    /*border: #baa2d0 1px solid;*/
     margin: 10px;
     display: flex;
     height: auto;
@@ -46,44 +50,51 @@
 .modalOrders {
     margin: 5px;
     border-radius: 10px;
-    border: 2px rgba(122, 182, 243, 0.97) solid;
+    border: 2px rgb(216, 166, 246) solid;
     height: 80px;
     min-width: 80px;
     padding-left: 5px;
     padding-right: 5px;
     font-size: 22px;
-    background-color: rgba(28, 162, 162, 0.51);
+    background-color: rgb(211, 194, 250);
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
+    font-weight: bolder;
 }
 
 .modalOrders:hover {
-    background-color: rgba(8, 98, 98, 0.51);
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.5);
-    border: 2px rgba(8, 98, 98, 0.51) solid;
+    background-color: rgb(226, 193, 245);
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+    /*border: 2px rgb(243, 80, 95) solid;*/
+    transition: all 100ms;
 }
 
 .selectedButton {
-    background-color: red !important;
-    border: 2px red solid;
+    background-color: #b237ff !important;
+    border: none;
+    color: white;
 }
 .modalOrders:active {
     transform: translate(1px, 1px);
 }
 .buttonClose {
-    background-color: lightskyblue;
-    height: 30px;
-    width: 120px;
-    border-radius: 20px;
+    margin-bottom: 0.5rem;
+    background-color: #b237ff;
+    height: 40px;
+    width: 240px;
+    border-radius: 1.5rem;
     border: 0;
-    font-size: 20px;
+    font-size: 25px;
+    color: white;
+    font-weight: bolder;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
+
 }
 .buttonClose:hover {
-    background-color: #5cb4ec;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.3);
+    transition: all 100ms;
 }
 .buttonClose:active {
     transform: translate(2px, 2px);
