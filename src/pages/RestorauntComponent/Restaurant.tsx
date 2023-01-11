@@ -11,18 +11,23 @@ import ph1 from '../../assets/img/test1.jpg';
 import ph2 from '../../assets/img/test2.jpg';
 import ph3 from '../../assets/img/test3.jpg';
 import {Simulate} from "react-dom/test-utils";
+import ui_loader from '../../assets/img/loader.gif'
+
 import load = Simulate.load;
+import {Loader} from "../../components/loader/Loader";
 
 type RestaurantPropsType = {
     name: string,
     img: string
     id: number
 }
+
+
+
 export const Restaurant = (props: RestaurantPropsType) => {
     const dispatch = useDispatch<any>()
     const orders = useSelector<AppStateType, OrdersType[]>(state => state.orders.orders)
     const idOfSelectedElement = useSelector<AppStateType, number>(state => state.orders.idOfSelectedElement)
-    const loader = useSelector<AppStateType, boolean>(state => state.orders.loader)
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const img = [
         {id: '1', img: ph1},
@@ -36,19 +41,24 @@ export const Restaurant = (props: RestaurantPropsType) => {
     useEffect(() => {
         dispatch(getOrdersTC(props.id))
     }, [])
+    const loader = useSelector<AppStateType, boolean>(state => state.orders.loader)
 
     return (
         <div className={s.wrapper}>
             <Header title={props.name} img={props.img} setIsOpen={setIsOpen}/>
-            <Table orders={orders}
-                   idOfSelectedElement={idOfSelectedElement} loader={loader}/>
-            <Advertisement img={img}/>
-            <Modal
-                onClickHandlerOfSelectedElement={onClickHandlerOfSelectedElement}
-                idOfSelectedElement={idOfSelectedElement}
-                orders={orders}
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}/>
+            <div className={s.content}>
+                <div className={loader ? s.displayNone : s.wrapper_loader}><img
+                    className={s.gif} src='chrome-extension://mnlohknjofogcljbcknkakphddjpijak/assets/Images/spin.gif'/></div>
+                <Table orders={orders}
+                       idOfSelectedElement={idOfSelectedElement}/>
+                <Advertisement img={img}/>
+                <Modal
+                    onClickHandlerOfSelectedElement={onClickHandlerOfSelectedElement}
+                    idOfSelectedElement={idOfSelectedElement}
+                    orders={orders}
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}/>
+            </div>
         </div>
     );
 };

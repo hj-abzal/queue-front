@@ -6,10 +6,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {getRestaurants, RestaurantType} from "./store/app-reducer";
 import {AppStateType} from "./store/store";
 import {getOrdersTC} from "./store/orders-reducer";
+import ui_loader from "./assets/img/loader.gif";
 
 export const App = () => {
     const restaurants = useSelector<AppStateType, RestaurantType[]>(state => state.app.restaurants);
     const dispatch = useDispatch<any>();
+
 
     useEffect(() => {
         dispatch(getRestaurants())

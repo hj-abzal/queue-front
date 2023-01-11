@@ -16,11 +16,7 @@ export const Header = (props: BurgerLogoType) => {
                     <img src={props.img} className={s.img}/>
                     <div className={s.title}>{props.title}</div>
                 </div>
-                <div className={s.flex}>
-                    <img src={click} className={s.modalButton}
-                            onClick={()=>{props.setIsOpen(true)}}>
-                    </img>
-                </div>
+                <button onClick={()=>{props.setIsOpen(true)}} className={s.button}>Выбрать заказ</button>
             </div>
         </div>
     );
