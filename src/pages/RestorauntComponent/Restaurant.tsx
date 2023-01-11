@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import s from "./Restaurant.module.css";
 import {Header} from "../../components/header/Header";
 import {Table} from "../../components/table/Table";
-import {Index_Modal} from "../../components/Modal/Index_Modal";
+import {IndexModal} from "../../components/Modal/IndexModal";
 import {AppStateType} from "../../store/store";
 import {getOrdersTC, isReadyCloseModal, OrdersType, selectedElementAC} from "../../store/orders-reducer";
 import {Advertisement} from "../../components/SpecTitle/Advertisement";
@@ -68,14 +68,14 @@ export const Restaurant = (props: RestaurantPropsType) => {
             <Table orders={orders}
                    idOfSelectedElement={idOfSelectedElement} loader={loader}/>
             <Advertisement img={img}/>
-             <Index_Modal
+             <IndexModal
                 modalTitle='Выберите ваш заказ'
                 onClickHandlerOfSelectedElement={onClickHandlerOfSelectedElement}
                 idOfSelectedElement={idOfSelectedElement}
                 orders={orders}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}/>
-            <Index_Modal
+            <IndexModal
                 modalTitle='Ваш заказ готов.'
                 bodyText='Спасибо за ожидание!'
                 isOpen={isReadyModalOpen}
