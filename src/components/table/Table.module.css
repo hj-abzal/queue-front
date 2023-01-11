@@ -38,21 +38,24 @@
     padding-left: 25px;
 }
 
-.numbersTrue {
+
+
+.numbersTrue_scroll {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
     width: 135px;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 185px;
 }
 
-.numbersFalse {
+
+.numbersFalse_scroll {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
     width: 135px;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 185px;
 }
 

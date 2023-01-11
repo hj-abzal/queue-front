@@ -1,6 +1,6 @@
 import React from 'react';
 import s from "./Header.module.css";
-
+import click from './../../assets/img/click.png'
 
 type BurgerLogoType = {
     title: string;
@@ -17,11 +17,12 @@ export const Header = (props: BurgerLogoType) => {
                     <img src={props.img} className={s.img}/>
                     <div className={s.title}>{props.title}</div>
                 </div>
-                <div className={s.flex}>
-                    <img src={props.clickBtn} className={s.modalButton}
-                            onClick={()=>{props.setIsOpen(true)}}>
-                    </img>
-                </div>
+                <button onClick={()=>{props.setIsOpen(true)}} className={s.button}>Выбрать заказ</button>
+                {/*<div className={s.flex}>*/}
+                {/*    <img src={props.clickBtn} className={s.modalButton}*/}
+                {/*            onClick={()=>{props.setIsOpen(true)}}>*/}
+                {/*    </img>*/}
+                {/*</div>*/}
             </div>
         </div>
     );

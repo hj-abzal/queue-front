@@ -1,6 +1,6 @@
 .main {
     width: 375px;
-    height: 100px;
+    height: 70px;
     margin-bottom: 15px;
     border-bottom: blue 1px solid;
     border-top-left-radius: 20px;
@@ -11,8 +11,8 @@
 }
 
 .img {
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
 }
 
 .modalButton {
@@ -22,8 +22,8 @@
 
 .flex {
     display: flex;
-    /*box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);*/
 }
+
 .logoBell {
     height: 60px;
     width: 320px;
@@ -32,11 +32,27 @@
     align-items: center;
 }
 
+.button {
+    width: 150px;
+    background-color: rgba(255,81,27);
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    line-height: 1.125rem;
+    opacity: 95%;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
 .title {
     align-self: center;
-    margin-left: 10px;
+    margin-left: 9px;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 15px;
 }
 
 
@@ -63,14 +79,18 @@
         height: 80px;
     }
     .title {
-        align-self: center;
-        font-size: 30px;
-        padding-left: 0.5px;
+        /*align-self: center;*/
+        /*font-size: 30px;*/
+        /*padding-left: 0.5px;*/
+        display: none;
+    }
+    .button {
+        margin-right: 20px;
     }
     .modalButton {
         margin-right: 1.7rem;
     }
     .img {
-        margin-left: 1rem;
+        margin-left: 2.5rem;
     }
 }
