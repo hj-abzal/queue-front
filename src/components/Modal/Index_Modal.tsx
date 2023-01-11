@@ -30,6 +30,7 @@ export const Index_Modal = (props: ModalPropsType) => {
         })
     }
 
+    const fds = ''
     const isActive = (id: number) => {
         if (props.idOfSelectedElement === id) {
             scrollIntoSelected(id)
