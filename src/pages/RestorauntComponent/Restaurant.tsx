@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import s from "./Restaurant.module.css";
 import {Header} from "../../components/header/Header";
 import {Table} from "../../components/table/Table";
-import {Modal} from "../../components/Modal/Modal";
+import {Index_Modal} from "../../components/Modal/Index_Modal";
 import {AppStateType} from "../../store/store";
 import {getOrdersTC, OrdersType, selectedElementAC} from "../../store/orders-reducer";
 import {Advertisement} from "../../components/SpecTitle/Advertisement";
@@ -18,13 +18,14 @@ type RestaurantPropsType = {
     img: string
     id: number
 }
-
 export const Restaurant = (props: RestaurantPropsType) => {
     const dispatch = useDispatch<any>()
     const orders = useSelector<AppStateType, OrdersType[]>(state => state.orders.orders)
     const idOfSelectedElement = useSelector<AppStateType, number>(state => state.orders.idOfSelectedElement)
     const loader = useSelector<AppStateType, boolean>(state => state.orders.loader)
+    const isReadyModalOpen = useSelector<AppStateType, boolean>(state => state.orders.isReadyModalOpen)
     const [isOpen, setIsOpen] = useState<boolean>(false)
+
     const img = [
         {id: '1', img: ph1},
         {id: '2', img: ph2},
@@ -33,13 +34,13 @@ export const Restaurant = (props: RestaurantPropsType) => {
 
     const onClickHandlerOfSelectedElement = useCallback((id: number) => {
         dispatch(selectedElementAC(id))
+
         localStorage.setItem('key', JSON.stringify(id))
     }, [idOfSelectedElement])
 
     useEffect(() => {
         dispatch(getOrdersTC(props.id))
     }, [])
-
 
     useEffect(() => {
         let interval: any;
@@ -61,21 +62,22 @@ export const Restaurant = (props: RestaurantPropsType) => {
     return (
         <div className={s.wrapper}>
             <Header title={props.name} img={props.img} clickBtn={click} setIsOpen={setIsOpen}/>
-            <div className={s.content}>
-                <div className={loader ? s.displayNone : s.wrapper_loader}><img
-                    className={s.gif} src='chrome-extension://mnlohknjofogcljbcknkakphddjpijak/assets/Images/spin.gif'/></div>
-                <Table orders={orders}
-                       idOfSelectedElement={idOfSelectedElement}/>
-                <Advertisement img={img}/>
-                <Modal
-                    onClickHandlerOfSelectedElement={onClickHandlerOfSelectedElement}
-                    idOfSelectedElement={idOfSelectedElement}
-                    orders={orders}
-                    isOpen={isOpen}
-                    setIsOpen={setIsOpen}/>
-            </div>
+            <Table orders={orders}
+                   idOfSelectedElement={idOfSelectedElement} loader={loader}/>
+            <Advertisement img={img}/>
+             <Index_Modal
+                modalTitle='Выберите ваш заказ'
+                onClickHandlerOfSelectedElement={onClickHandlerOfSelectedElement}
+                idOfSelectedElement={idOfSelectedElement}
+                orders={orders}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}/>
+            <Index_Modal
+                modalTitle='Ваш заказ готов.'
+                bodyText='Спасибо за ожидание!'
+                isOpen={isReadyModalOpen}
+                setIsOpen={setIsOpen}/>
         </div>
     );
 };
-
 

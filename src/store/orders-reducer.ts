@@ -1,7 +1,10 @@
 import {Dispatch} from "redux";
 import {ordersAPI} from "../api/api";
 
-type ActionsType = ReturnType<typeof getOrders> | ReturnType<typeof selectedElementAC>
+type ActionsType =
+    | ReturnType<typeof getOrders>
+    | ReturnType<typeof selectedElementAC>
+    | ReturnType<typeof isReadyCloseModal>
 export type RestaurantsInitStateType = typeof restaurantOrdersInitState
 export type OrdersType = {
     id: number
@@ -12,7 +15,8 @@ export type OrdersType = {
 export const restaurantOrdersInitState = {
     orders: [] as OrdersType[],
     idOfSelectedElement: 0,
-    loader: false
+    loader: false,
+    isReadyModalOpen: false,
 }
 
 //REDUCER LOGIC
@@ -31,6 +35,12 @@ export const ordersReducer = (state: RestaurantsInitStateType = restaurantOrders
                 idOfSelectedElement: action.id
             }
         }
+        case "IS_READY_CLOSE_MODAL": {
+            return {
+                ...state,
+                isReadyModalOpen: action.isReady
+            }
+        }
         default:
             return state
     }
@@ -43,6 +53,9 @@ export const selectedElementAC = (id: number) => ({
 export const getOrders = (orders: OrdersType[]) => ({
     type: "GET_ORDERS" as const, orders, loader: true
 })
+export const isReadyCloseModal = (isReady: boolean) => ({
+    type: "IS_READY_CLOSE_MODAL" as const, isReady
+})
 
 //THUNK CREATORS
 export const getOrdersTC = (id: number) => async (dispatch: Dispatch) => {
@@ -53,6 +66,7 @@ export const getOrdersTC = (id: number) => async (dispatch: Dispatch) => {
         if (selected) {
             if (selected.is_ready) {
                 alert('Ваш заказ готов!!!')
+                dispatch(isReadyCloseModal(false))
                 dispatch(selectedElementAC(0))
                 localStorage.removeItem('key')
             } else {
