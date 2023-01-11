@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import s from "./Restaurant.module.css";
 import {Header} from "../../components/header/Header";
 import {Table} from "../../components/table/Table";
-import {Modal} from "../../components/Modal/Modal";
+import {Index_Modal} from "../../components/Modal/Index_Modal";
 import {AppStateType} from "../../store/store";
 import {getOrdersTC, OrdersType, selectedElementAC} from "../../store/orders-reducer";
 import {Advertisement} from "../../components/SpecTitle/Advertisement";
@@ -23,6 +23,7 @@ export const Restaurant = (props: RestaurantPropsType) => {
     const orders = useSelector<AppStateType, OrdersType[]>(state => state.orders.orders)
     const idOfSelectedElement = useSelector<AppStateType, number>(state => state.orders.idOfSelectedElement)
     const loader = useSelector<AppStateType, boolean>(state => state.orders.loader)
+    const isReadyModalOpen = useSelector<AppStateType, boolean>(state => state.orders.isReadyModalOpen)
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     const img = [
@@ -64,11 +65,17 @@ export const Restaurant = (props: RestaurantPropsType) => {
             <Table orders={orders}
                    idOfSelectedElement={idOfSelectedElement} loader={loader}/>
             <Advertisement img={img}/>
-            <Modal
+             <Index_Modal
+                modalTitle='Выберите ваш заказ'
                 onClickHandlerOfSelectedElement={onClickHandlerOfSelectedElement}
                 idOfSelectedElement={idOfSelectedElement}
                 orders={orders}
                 isOpen={isOpen}
+                setIsOpen={setIsOpen}/>
+            <Index_Modal
+                modalTitle='Ваш заказ готов.'
+                bodyText='Спасибо за ожидание!'
+                isOpen={isReadyModalOpen}
                 setIsOpen={setIsOpen}/>
         </div>
     );
