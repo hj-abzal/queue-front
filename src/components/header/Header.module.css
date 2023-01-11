@@ -1,6 +1,6 @@
 .main {
     width: 375px;
-    height: 70px;
+    height: 65px;
     margin-bottom: 15px;
     border-bottom: blue 1px solid;
     border-top-left-radius: 20px;
@@ -26,26 +26,38 @@
 
 .logoBell {
     height: 60px;
-    width: 320px;
+    width: 300px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .button {
-    width: 150px;
-    background-color: rgba(255,81,27);
+    border-radius: 0.5rem;
+    background-color: #fe540e;
     color: white;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 5px;
     border: none;
-    line-height: 1.125rem;
-    opacity: 95%;
+    font-weight: bold;
 }
 
-.button:hover {
+.shop {
+    display: flex;
+}
+
+.icon {
+    align-self: center;
+    background-color: #fe540e;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 1.2rem;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.icon:hover {
     cursor: pointer;
+
 }
 
 .title {
@@ -60,6 +72,7 @@
     .main {
         width: 100%;
     }
+
     .title {
         padding-left: 5px;
     }
@@ -69,28 +82,37 @@
     .main {
         height: 85px;
     }
+
     .title {
         padding-left: 5px;
     }
 }
 
-@media screen and (max-width: 340px){
+@media screen and (max-width: 340px) {
     .main {
         height: 80px;
     }
+
     .title {
         /*align-self: center;*/
         /*font-size: 30px;*/
         /*padding-left: 0.5px;*/
         display: none;
     }
+
     .button {
         margin-right: 20px;
     }
+
     .modalButton {
         margin-right: 1.7rem;
     }
+
     .img {
         margin-left: 2.5rem;
+    }
+
+    .icon {
+        margin-right: 2rem;
     }
 }
