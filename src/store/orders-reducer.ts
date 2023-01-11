@@ -16,7 +16,7 @@ export const restaurantOrdersInitState = {
     orders: [] as OrdersType[],
     idOfSelectedElement: 0,
     loader: false,
-    isReadyModalOpen: false,
+    isReadyModalOpen: true,
 }
 
 //REDUCER LOGIC
@@ -66,8 +66,8 @@ export const getOrdersTC = (id: number) => async (dispatch: Dispatch) => {
         if (selected) {
             if (selected.is_ready) {
                 alert('Ваш заказ готов!!!')
-                dispatch(isReadyCloseModal(false))
                 dispatch(selectedElementAC(0))
+                dispatch(isReadyCloseModal(false))
                 localStorage.removeItem('key')
             } else {
                 dispatch(selectedElementAC(+localS))

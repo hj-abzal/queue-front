@@ -11,6 +11,7 @@ type ModalPropsType = {
     idOfSelectedElement?: number
     modalTitle: string
     bodyText?: string
+    modalClose?: (value: boolean) => void
 }
 
 export const Index_Modal = (props: ModalPropsType) => {
@@ -53,11 +54,11 @@ export const Index_Modal = (props: ModalPropsType) => {
                                                             onClick={() => {
                                                                 onClickHandler(t.id);
                                                             }}>{t.key}</button>
-                        }) : props.bodyText}
+                        }) : <h2>{props.bodyText}</h2>}
                     </div>
                     <div>
                         <button className={s.buttonClose}
-                                onClick={() => props.setIsOpen(false)}>закрыть
+                                onClick={() => {props.setIsOpen(false); props.modalClose?.(false)}}>закрыть
                         </button>
                     </div>
                 </Dialog.Panel>

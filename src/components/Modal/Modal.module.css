@@ -108,15 +108,13 @@
 ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px grey;
     border-radius: 3px;
-    height: 100px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #666666;
+    background: #6c7e9f;
     border-radius: 3px;
-
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #fe540e;
+    background: #3c5480;
 }
