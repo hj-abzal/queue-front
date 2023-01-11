@@ -1,10 +1,24 @@
 import React from 'react';
-import s from './Loader.module.css'
+import './Loader.css'
 
 export const Loader = () => {
     return (
-            <div className={s.loader}>
+        <div className='loader'>
+            <div className="lds-default">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
+        </div>
     );
 };
 
