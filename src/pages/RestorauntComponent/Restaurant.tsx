@@ -80,3 +80,4 @@ export const Restaurant = (props: RestaurantPropsType) => {
     );
 };
 
+
