@@ -10,10 +10,7 @@ import {Advertisement} from "../../components/SpecTitle/Advertisement";
 import ph1 from '../../assets/img/test1.jpg';
 import ph2 from '../../assets/img/test2.jpg';
 import ph3 from '../../assets/img/test3.jpg';
-import {Simulate} from "react-dom/test-utils";
-// import load = Simulate.load;
-import {Loader} from "../../components/loader/Loader";
- import click from '../../assets/img/bell.png'
+import click from '../../assets/img/bell.png'
 
 
 type RestaurantPropsType = {
@@ -21,6 +18,7 @@ type RestaurantPropsType = {
     img: string
     id: number
 }
+
 export const Restaurant = (props: RestaurantPropsType) => {
     const dispatch = useDispatch<any>()
     const orders = useSelector<AppStateType, OrdersType[]>(state => state.orders.orders)
