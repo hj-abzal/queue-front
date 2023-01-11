@@ -5,7 +5,7 @@ import {Header} from "../../components/header/Header";
 import {Table} from "../../components/table/Table";
 import {Index_Modal} from "../../components/Modal/Index_Modal";
 import {AppStateType} from "../../store/store";
-import {getOrdersTC, OrdersType, selectedElementAC} from "../../store/orders-reducer";
+import {getOrdersTC, isReadyCloseModal, OrdersType, selectedElementAC} from "../../store/orders-reducer";
 import {Advertisement} from "../../components/SpecTitle/Advertisement";
 import ph1 from '../../assets/img/test1.jpg';
 import ph2 from '../../assets/img/test2.jpg';
@@ -38,6 +38,9 @@ export const Restaurant = (props: RestaurantPropsType) => {
         localStorage.setItem('key', JSON.stringify(id))
     }, [idOfSelectedElement])
 
+    const modalClose = (value: boolean) => {
+      dispatch(isReadyCloseModal(value))
+    }
     useEffect(() => {
         dispatch(getOrdersTC(props.id))
     }, [])
@@ -76,7 +79,8 @@ export const Restaurant = (props: RestaurantPropsType) => {
                 modalTitle='Ваш заказ готов.'
                 bodyText='Спасибо за ожидание!'
                 isOpen={isReadyModalOpen}
-                setIsOpen={setIsOpen}/>
+                setIsOpen={setIsOpen}
+                modalClose={modalClose}/>
         </div>
     );
 };
