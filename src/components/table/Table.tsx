@@ -12,27 +12,26 @@ export type TableType = {
 export const Table = (props: TableType) => {
     return (
         <div className={s.main}>
-            <table>
-                <tr className={s.flex}>
-                    <th className={s.check}>Готовится</th>
-                    <th className={s.check}>Готово</th>
-                </tr>
-                <tr className={s.flex}>
-                    <td className={s.numbersTrue_scroll}>
+            <div className={s.table}>
+                <div>
+                    <div className={s.check}>Готовится</div>
+                    <div className={s.numbersTrue_scroll}>
                         {props.orders.map((t) => {
-                        if (!t.is_ready) return <td key={t.id}
-                                                    className={props.idOfSelectedElement === t.id ? `${s.selectedButton} ${s.true}` : s.true}>{t.key}</td>
-                    })}
-                    </td>
-                    <td className={s.numbersFalse_scroll}>
-                        {props.orders.map((t) => {
-                            if (t.is_ready) return <td key={t.id}
+                            if (!t.is_ready) return <td key={t.id}
                                                         className={props.idOfSelectedElement === t.id ? `${s.selectedButton} ${s.true}` : s.true}>{t.key}</td>
                         })}
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                </div>
+                <div>
+                    <div className={s.check}>Готово</div>
+                    <div className={s.numbersFalse_scroll}>
+                        {props.orders.map((t) => {
+                            if (t.is_ready) return <td key={t.id}
+                                                       className={props.idOfSelectedElement === t.id ? `${s.selectedButton} ${s.true}` : s.true}>{t.key}</td>
+                        })}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
-
