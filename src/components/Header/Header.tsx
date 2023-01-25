@@ -6,7 +6,6 @@ type BurgerLogoType = {
     title: string;
     img: string;
     clickBtn: string;
-    setIsOpen: (value: any) => void;
 }
 
 export const Header = (props: BurgerLogoType) => {
@@ -15,9 +14,6 @@ export const Header = (props: BurgerLogoType) => {
             <div className={s.logoBell}>
                 <div className={s.flex}>
                     <img src={props.img} className={s.img}/>
-                </div>
-                <div className={s.shop}>
-                    <button onClick={()=>{props.setIsOpen(true)}} className={s.button}>Выбрать заказ</button>
                 </div>
             </div>
         </div>

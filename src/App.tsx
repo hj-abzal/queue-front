@@ -27,7 +27,8 @@ export const App = () => {
 
                 {restaurants.map((r) => {
                     return (
-                        <Route key={r.id} path={r.url} element={<Restaurant key={r.id} id={r.id} img={r.img} name={r.title}/>}/>)
+                        <Route key={r.id} path={r.url}
+                               element={<Restaurant key={r.id} url={r.url} id={r.id} img={r.img} name={r.title}/>}/>)
                 })}
             </Routes>
         </div>

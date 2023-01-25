@@ -4,17 +4,13 @@
     border: blueviolet solid 3px;
     border-radius: 35px;
     background-color: #ffffff;
-    margin: 48px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    row-gap: 5%;
+    overflow: hidden;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    position: relative;
-}
 
 @media screen and (max-width: 1920px) {
     .wrapper {
@@ -48,3 +44,19 @@
     display: none;
 }
 
+.confirm{
+    margin: 5px;
+    border-radius: 10px;
+    color: #fff;
+    border: none;
+    min-width: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 22px;
+    background-color: #fe540e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
+    font-weight: bolder;
+}
