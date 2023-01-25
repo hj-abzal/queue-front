@@ -1,5 +1,5 @@
+
 .main {
-    margin-top: 4rem;
     display: flex;
     justify-content: center;
     margin-left: 0.5rem;
@@ -41,18 +41,22 @@
 
 .numbersTrue_scroll {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border: 1px solid black;
-    width: 133px;
-    overflow-y: auto;
-    height: 185px;
+    width: 20rem;
+    /*column-gap: 15%;*/
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    /*overflow-y: auto;*/
+    /*height: 100px;*/
     border-radius: 0 0 8px 8px;
+    overflow-y: scroll;
 }
 
 
 .numbersFalse_scroll {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border: 1px solid black;
     width: 133px;
     overflow-y: auto;
@@ -61,11 +65,20 @@
 }
 
 .true {
-    border-bottom: 1px solid black;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 50px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 2px #fe540e solid;
+    height: 80px;
+    min-width: 80px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 22px;
+    background-color: #fff;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
+    font-weight: bolder;
 }
 
 .selectedButton {
@@ -84,7 +97,7 @@
 
 .numbers {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .table {
@@ -117,5 +130,9 @@
     background-color: #fe540e;
     color: white;
     font-weight: bold;
+}
+
+.true:hover{
+    background-color: #6c7e9f;
 }
     

@@ -1,7 +1,7 @@
 .main {
     width: 375px;
     height: 65px;
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
     border-bottom: blue 1px solid;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
